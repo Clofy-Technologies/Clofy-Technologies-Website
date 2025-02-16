@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>YAIGA - PBS Report</title>
+  
+  <!-- Google Font: Montserrat -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link 
+    href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&display=swap" 
+    rel="stylesheet"
+  >
+
+  <style>
+    /* Global Reset & Fonts */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Montserrat', sans-serif;
+      background-color: #f9f9f9;
+      color: #2b3289;
+      line-height: 1.6;
+    }
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    /* Container Utility */
+    .container {
+      width: 90%;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 2rem 0;
+    }
+
+    /* Header / Hero Section */
+    header {
+      background-color: #2b3289;
+      color: #ffffff;
+      text-align: center;
+      padding: 2rem 1rem;
+      margin-bottom: 2rem;
+    }
+    header h1 {
+      font-size: 2rem;
+      margin-bottom: 0.5rem;
+      font-weight: 700;
+    }
+    header p {
+      font-size: 1.1rem;
+      max-width: 800px;
+      margin: 0.5rem auto 0;
+      line-height: 1.6;
+    }
+
+    /* Section Title Style */
+    .section-title {
+      font-size: 1.6rem;
+      font-weight: 600;
+      margin-bottom: 1rem;
+      color: #2b3289;
+      position: relative;
+      padding-bottom: 0.5rem;
+    }
+    .section-title::after {
+      content: "";
+      display: block;
+      width: 60px;
+      height: 3px;
+      background-color: #29c965;
+      margin-top: 0.5rem;
+    }
+
+    /* Content Sections */
+    .report-section {
+      background-color: #ffffff;
+      border-radius: 6px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      padding: 1.5rem;
+      margin-bottom: 2rem;
+    }
+    .report-section h2 {
+      font-size: 1.3rem;
+      font-weight: 600;
+      margin-bottom: 0.8rem;
+      color: #2b3289;
+    }
+    .report-section p,
+    .report-section li {
+      color: #444444;
+      margin-bottom: 0.6rem;
+      line-height: 1.6;
+    }
+    .report-section ul {
+      list-style: disc;
+      margin-left: 1.5rem;
+      margin-bottom: 1rem;
+    }
+
+    /* Score Emphasis */
+    .score-value {
+      font-size: 1.5rem;
+      color: #29c965;
+      font-weight: 700;
+    }
+
+    /* Strengths & Areas for Improvement boxes */
+    .strengths,
+    .improvements {
+      background-color: #f9f9f9;
+      border-left: 4px solid #29c965;
+      padding: 1rem;
+      margin-bottom: 1rem;
+      border-radius: 4px;
+    }
+    .improvements {
+      border-left-color: #ff7b7b; /* or any attention color you prefer */
+    }
+    .strengths h3,
+    .improvements h3 {
+      font-size: 1.1rem;
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+    }
+
+    /* Action Plan Styles */
+    .action-plan-lists {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1rem;
+    }
+    .action-plan-lists .plan-box {
+      background-color: #ffffff;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      border-radius: 6px;
+      padding: 1rem;
+    }
+    .plan-box h4 {
+      font-size: 1.1rem;
+      margin-bottom: 0.5rem;
+      color: #2b3289;
+      font-weight: 600;
+    }
+    .plan-box ul {
+      list-style: disc;
+      margin-left: 1.5rem;
+      color: #444444;
+    }
+
+    /* CTA Buttons */
+    .cta-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+    .cta-btn {
+      background-color: #29c965;
+      color: #ffffff;
+      padding: 0.8rem 1.5rem;
+      border-radius: 4px;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+      transition: background-color 0.3s ease;
+      text-transform: uppercase;
+      display: inline-block;
+      text-align: center;
+    }
+    .cta-btn:hover {
+      background-color: #24b459;
+    }
+
+    /* Footer */
+    footer {
+      text-align: center;
+      margin-top: 2rem;
+      font-size: 0.9rem;
+      color: #666666;
+    }
+
+    /* Responsive Adjustments */
+    @media (max-width: 768px) {
+      header h1 {
+        font-size: 1.6rem;
+      }
+      .report-section {
+        padding: 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Hero / Header -->
+  <header>
+    <h1>Your Personal Branding Score (PBS) Report</h1>
+    <p>
+      Congratulations! Below is your detailed report, including strengths, areas for improvement, 
+      and an action plan to enhance your personal brand.
+    </p>
+  </header>
+
+  <!-- Main Container -->
+  <div class="container">
+
+    <!-- 1. PBS Score -->
+    <section class="report-section">
+      <h2 class="section-title">1. Your Personal Branding Score</h2>
+      <p>
+        Your PBS: <span class="score-value">[Calculated PBS Score]</span> / 100
+      </p>
+      <p><strong>Rating:</strong></p>
+      <ul>
+        <li><strong>0-40:</strong> Needs Improvement</li>
+        <li><strong>41-70:</strong> Good</li>
+        <li><strong>71-90:</strong> Strong</li>
+        <li><strong>91-100:</strong> Excellent</li>
+      </ul>
+      <p>
+        Based on your score, we’ve determined how effectively you’re positioning yourself online. 
+        Keep reading to see your detailed breakdown and personalized action plan.
+      </p>
+    </section>
+
+    <!-- 2. Personal Branding Evaluation Breakdown -->
+    <section class="report-section">
+      <h2 class="section-title">2. Personal Branding Evaluation Breakdown</h2>
+
+      <!-- Branding Consistency -->
+      <h3>Branding Consistency: [Score]</h3>
+      <p>
+        Consistency in your photo, bio, and messaging helps build trust and recognition.
+      </p>
+      <div class="strengths">
+        <h3>Strengths</h3>
+        <ul>
+          <li>You maintain a consistent profile across platforms.</li>
+          <li>You have a clear personal branding statement.</li>
+        </ul>
+      </div>
+      <div class="improvements">
+        <h3>Areas for Improvement</h3>
+        <ul>
+          <li>Ensure your profile picture and bio align across all platforms for better brand recognition.</li>
+        </ul>
+      </div>
+
+      <!-- Platform-Specific Evaluations -->
+      <h3>Platform-Specific Evaluation</h3>
+
+      <!-- LinkedIn -->
+      <h4>LinkedIn Profile: [Score]</h4>
+      <div class="strengths">
+        <h3>Strengths</h3>
+        <ul>
+          <li>Your headline and summary are clear and well-defined.</li>
+          <li>You have received quality recommendations.</li>
+        </ul>
+      </div>
+      <div class="improvements">
+        <h3>Areas for Improvement</h3>
+        <ul>
+          <li>Post more content and engage with your network to increase visibility.</li>
+          <li>Optimize your experience & skills section with relevant keywords.</li>
+        </ul>
+      </div>
+
+      <!-- YouTube -->
+      <h4>YouTube: [Score]</h4>
+      <div class="strengths">
+        <h3>Strengths</h3>
+        <ul>
+          <li>Your content aligns with your career interests.</li>
+          <li>You have a decent number of subscribers.</li>
+        </ul>
+      </div>
+      <div class="improvements">
+        <h3>Areas for Improvement</h3>
+        <ul>
+          <li>Increase posting frequency and audience engagement to grow your channel.</li>
+        </ul>
+      </div>
+
+      <!-- Instagram -->
+      <h4>Instagram: [Score]</h4>
+      <div class="strengths">
+        <h3>Strengths</h3>
+        <ul>
+          <li>Your posts align well with your career interests.</li>
+          <li>You have a healthy number of followers for your career level.</li>
+        </ul>
+      </div>
+      <div class="improvements">
+        <h3>Areas for Improvement</h3>
+        <ul>
+          <li>Regularly post career-related content or project insights to connect better with your audience.</li>
+        </ul>
+      </div>
+
+      <!-- X (Twitter) -->
+      <h4>X (formerly Twitter): [Score]</h4>
+      <div class="strengths">
+        <h3>Strengths</h3>
+        <ul>
+          <li>You post relevant content aligned with your career.</li>
+          <li>You have a decent follower count.</li>
+        </ul>
+      </div>
+      <div class="improvements">
+        <h3>Areas for Improvement</h3>
+        <ul>
+          <li>Reply to tweets, share articles, and comment on trends to increase engagement.</li>
+        </ul>
+      </div>
+
+    </section>
+
+    <!-- 3. Engagement & Community Participation -->
+    <section class="report-section">
+      <h2 class="section-title">3. Engagement & Community Participation: [Score]</h2>
+      <div class="strengths">
+        <h3>Strengths</h3>
+        <ul>
+          <li>You are actively involved in academic or professional communities.</li>
+          <li>You attend online or offline events for additional networking.</li>
+        </ul>
+      </div>
+      <div class="improvements">
+        <h3>Areas for Improvement</h3>
+        <ul>
+          <li>Engage more in niche communities or forums within your field to amplify your personal brand.</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- 4. Internships & Opportunities -->
+    <section class="report-section">
+      <h2 class="section-title">4. Internships & Opportunities: [Score]</h2>
+      <div class="strengths">
+        <h3>Strengths</h3>
+        <ul>
+          <li>You have leveraged internships or collaborations to boost your experience.</li>
+        </ul>
+      </div>
+      <div class="improvements">
+        <h3>Areas for Improvement</h3>
+        <ul>
+          <li>If you haven’t secured opportunities yet, focus on optimizing your resume, LinkedIn profile, and outreach.</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- 5. Additional Questions Review -->
+    <section class="report-section">
+      <h2 class="section-title">5. Additional Questions Review</h2>
+
+      <h4>LinkedIn Connections: [Score]</h4>
+      <div class="strengths">
+        <h3>Strengths</h3>
+        <ul>
+          <li>You have a solid number of LinkedIn connections.</li>
+        </ul>
+      </div>
+      <div class="improvements">
+        <h3>Areas for Improvement</h3>
+        <ul>
+          <li>Focus on quality, relevant connections to broaden opportunities for collaboration and visibility.</li>
+        </ul>
+      </div>
+
+      <h4>Online Portfolio or Personal Website: [Score]</h4>
+      <div class="strengths">
+        <h3>Strengths</h3>
+        <ul>
+          <li>You have an online portfolio/website showcasing your work—great for standing out.</li>
+        </ul>
+      </div>
+      <div class="improvements">
+        <h3>Areas for Improvement</h3>
+        <ul>
+          <li>Keep your portfolio updated with new projects and achievements to remain current.</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- 6. Overall Personal Branding Evaluation -->
+    <section class="report-section">
+      <h2 class="section-title">6. Overall Personal Branding Evaluation</h2>
+      <h4>Consistency Across Platforms: [Score]</h4>
+      <p>
+        While you have a consistent personal brand, aligning visual branding (photo, colors) and messaging across all platforms 
+        will strengthen your unified presence.
+      </p>
+
+      <h4>Clear Personal Branding Statement: [Score]</h4>
+      <p>
+        Your statement is clear and aligns with your professional goals. Consider adding specific achievements or unique elements 
+        to make it more compelling.
+      </p>
+    </section>
+
+    <!-- 7. Action Plan for Improving Your PBS -->
+    <section class="report-section">
+      <h2 class="section-title">7. Action Plan for Improving Your PBS</h2>
+      <div class="action-plan-lists">
+        <!-- Short-Term -->
+        <div class="plan-box">
+          <h4>Short-Term Actions</h4>
+          <ul>
+            <li>Optimize your LinkedIn headline & summary.</li>
+            <li>Increase engagement on LinkedIn, Instagram, and X by posting regularly.</li>
+            <li>Build or update your online portfolio if you don’t already have one.</li>
+          </ul>
+        </div>
+        <!-- Medium-Term -->
+        <div class="plan-box">
+          <h4>Medium-Term Actions</h4>
+          <ul>
+            <li>Expand your LinkedIn network and join relevant industry communities.</li>
+            <li>Grow your YouTube & Instagram follower base with career-focused content.</li>
+            <li>Seek internships or volunteer opportunities for more professional experience.</li>
+          </ul>
+        </div>
+        <!-- Long-Term -->
+        <div class="plan-box">
+          <h4>Long-Term Actions</h4>
+          <ul>
+            <li>Refine your personal branding statement as your goals evolve.</li>
+            <li>Maintain consistent, high-quality content across all platforms.</li>
+            <li>Monitor your progress every 3-6 months and adjust your strategy as needed.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- 8. Your Next Steps -->
+    <section class="report-section">
+      <h2 class="section-title">8. Your Next Steps</h2>
+      <p>
+        By following the recommendations in this report and tracking your improvements, you’ll be on the path 
+        to building a stronger, more impactful personal brand. Good luck on your journey!
+      </p>
+      <div class="cta-buttons">
+        <a href="#" class="cta-btn">Download Report</a>
+        <a href="#" class="cta-btn">Recommendation</a>
+        <a href="#" class="cta-btn">Start My PBS Plan Now</a>
+      </div>
+    </section>
+  </div>
+
+  <footer>
+    <p>© 2025 YAIGA. All rights reserved.</p>
+  </footer>
+</body>
+</html>

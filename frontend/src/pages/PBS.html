@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>YAIGA - Personal Branding Score (PBS)</title>
+  
+  <!-- Google Font: Montserrat -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link 
+    href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&display=swap" 
+    rel="stylesheet"
+  >
+  
+  <style>
+    /* Global Reset & Fonts */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Montserrat', sans-serif;
+      color: #2b3289;
+      background-color: #ffffff;
+      line-height: 1.6;
+    }
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    /* Container Utility */
+    .container {
+      width: 90%;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 2rem 0;
+    }
+
+    /* Header / Navigation */
+    header {
+      background-color: #2b3289;
+      padding: 1rem 0;
+      color: #ffffff;
+    }
+    nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      width: 90%;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    .nav-left, .nav-right {
+      display: flex;
+      align-items: center;
+    }
+    .nav-left img {
+      height: 40px;
+      margin-right: 1rem;
+    }
+    .nav-right a {
+      margin-left: 1rem;
+      font-weight: 500;
+      transition: color 0.3s ease;
+      color: #ffffff;
+    }
+    .nav-right a:hover {
+      color: #29c965;
+    }
+
+    /* Hero Section */
+    .hero {
+      background: linear-gradient(120deg, #2b3289 0%, #29c965 100%);
+      color: #ffffff;
+      text-align: center;
+      padding: 3rem 1rem;
+      margin-bottom: 2rem;
+      border-bottom-left-radius: 50% 5%;
+      border-bottom-right-radius: 50% 5%;
+      clip-path: ellipse(100% 100% at 50% 0%);
+    }
+    .hero h1 {
+      font-size: 2.4rem;
+      margin-bottom: 1rem;
+      font-weight: 700;
+    }
+    .hero p {
+      font-size: 1.1rem;
+      max-width: 800px;
+      margin: 0.5rem auto 0;
+      line-height: 1.6;
+    }
+
+    /* Section Titles */
+    .section-title {
+      font-size: 1.8rem;
+      font-weight: 600;
+      margin-bottom: 1rem;
+      color: #2b3289;
+      text-align: center;
+    }
+
+    /* Content Sections */
+    .content-section {
+      margin-bottom: 2.5rem;
+    }
+    .content-section h2 {
+      font-size: 1.4rem;
+      font-weight: 600;
+      margin-bottom: 0.8rem;
+      color: #2b3289;
+    }
+    .content-section p,
+    .content-section li {
+      color: #444444;
+      margin-bottom: 0.8rem;
+      line-height: 1.6;
+    }
+    .content-section ul {
+      list-style: disc;
+      margin-left: 1.5rem;
+      margin-bottom: 1rem;
+    }
+
+    /* Tip / Highlight Boxes */
+    .highlight-box {
+      background-color: #f9f9f9;
+      border-left: 4px solid #29c965;
+      padding: 1rem 1.2rem;
+      margin: 1rem 0;
+      border-radius: 4px;
+    }
+    .highlight-box p {
+      margin: 0;
+    }
+
+    /* Steps Section */
+    .steps-list ul {
+      list-style: none;
+      margin-left: 0;
+    }
+    .steps-list li {
+      background-color: #f9f9f9;
+      border-left: 4px solid #2b3289;
+      margin-bottom: 1rem;
+      padding: 1rem 1.2rem;
+      border-radius: 4px;
+    }
+    .steps-list li h3 {
+      font-size: 1.1rem;
+      margin-bottom: 0.5rem;
+      color: #2b3289;
+      font-weight: 600;
+    }
+    .steps-list li p {
+      margin: 0;
+      color: #444444;
+    }
+
+    /* CTA Section */
+    .cta-section {
+      background-color: #29c965;
+      color: #ffffff;
+      text-align: center;
+      padding: 3rem 1rem;
+      margin-top: 2rem;
+      border-top-left-radius: 50% 5%;
+      border-top-right-radius: 50% 5%;
+      clip-path: ellipse(100% 100% at 50% 100%);
+    }
+    .cta-section h2 {
+      font-size: 1.8rem;
+      font-weight: 600;
+      margin-bottom: 1rem;
+    }
+    .cta-section p {
+      max-width: 800px;
+      margin: 0.5rem auto 2rem;
+      font-size: 1.1rem;
+      line-height: 1.6;
+    }
+    .cta-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 1rem;
+    }
+    .cta-btn {
+      background-color: #ffffff;
+      color: #29c965;
+      padding: 0.8rem 1.5rem;
+      border-radius: 4px;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+      transition: background-color 0.3s ease, color 0.3s ease;
+      text-transform: uppercase;
+      display: inline-block;
+    }
+    .cta-btn:hover {
+      background-color: #eaeaea;
+      color: #2b3289;
+    }
+
+    /* FAQ Section */
+    .faq-section {
+      margin-top: 2rem;
+    }
+    .faq-section h2 {
+      font-size: 1.6rem;
+      margin-bottom: 1.5rem;
+      text-align: center;
+      color: #2b3289;
+    }
+    .faq-item {
+      margin-bottom: 1.5rem;
+    }
+    .faq-item h3 {
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: #2b3289;
+      margin-bottom: 0.4rem;
+    }
+    .faq-item p {
+      color: #444444;
+      margin-left: 1rem;
+    }
+
+    /* Footer */
+    footer {
+      background-color: #2b3289;
+      color: #ffffff;
+      padding: 2rem 0;
+      text-align: center;
+      margin-top: 2rem;
+    }
+    footer .footer-links {
+      margin-bottom: 1rem;
+    }
+    footer .footer-links a {
+      margin: 0 0.6rem;
+      font-size: 0.95rem;
+      transition: color 0.3s ease;
+    }
+    footer .footer-links a:hover {
+      color: #29c965;
+    }
+    footer p {
+      font-size: 0.9rem;
+      opacity: 0.8;
+    }
+
+    /* Responsive Adjustments */
+    @media (max-width: 768px) {
+      .hero {
+        border-radius: 0;
+        clip-path: none;
+      }
+      .cta-section {
+        border-radius: 0;
+        clip-path: none;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header / Navigation -->
+  <header>
+    <nav>
+      <!-- Left: Logo & Title -->
+      <div class="nav-left">
+        <!-- Placeholder logo (replace with your own image) -->
+        <img 
+          src="https://via.placeholder.com/150x40/29c965/ffffff?text=YAIGA" 
+          alt="YAIGA Logo" 
+        />
+        <span style="font-weight:600;">PBS</span>
+      </div>
+      <!-- Right: Nav Items (optional) -->
+      <div class="nav-right">
+        <a href="#">Home</a>
+        <a href="#">Pricing</a>
+        <a href="#">Sign In</a>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <h1>Personal Branding Score (PBS)</h1>
+    <p>
+      Unlock the Power of Your Personal Brand. Your PBS is more than just a number—it’s the key to 
+      standing out and thriving in today's digital world.
+    </p>
+  </section>
+
+  <div class="container">
+    <!-- Intro / Definition -->
+    <section class="content-section">
+      <h2>What is the Personal Branding Score (PBS)?</h2>
+      <p>
+        The Personal Branding Score (PBS) is an AI-driven tool that evaluates your digital footprint 
+        across platforms like LinkedIn, personal websites, and social media. It provides a score from 
+        0 to 100 that reflects the strength of your personal brand and visibility.
+      </p>
+      <div class="highlight-box">
+        <p>
+          <strong>The PBS is designed to:</strong><br/>
+          - Help you assess how you’re perceived by potential employers, clients, or collaborators.<br/>
+          - Offer insights into areas for improvement in your personal brand.<br/>
+          - Guide your actions toward improving your online presence, network, and influence.
+        </p>
+      </div>
+    </section>
+
+    <!-- How PBS is Calculated -->
+    <section class="content-section">
+      <h2>How is Your PBS Calculated?</h2>
+      <p>
+        Your PBS is calculated using a combination of factors that YAIGA’s advanced AI algorithms analyze, including:
+      </p>
+      <ul>
+        <li><strong>LinkedIn Profile:</strong> Completion, professionalism, and endorsements.</li>
+        <li><strong>Social Media Presence:</strong> Activity, alignment with brand message, professional tone.</li>
+        <li><strong>Content & Engagement:</strong> Posting/sharing relevant content, engagement with your network.</li>
+        <li><strong>Professional Portfolio:</strong> Quality of personal website, portfolio items, or case studies.</li>
+        <li><strong>Reputation & Visibility:</strong> Mentions in industry discussions, articles, or publications.</li>
+      </ul>
+      <p>
+        Based on these factors, YAIGA generates a detailed report with your PBS (0–100), key strengths, improvement 
+        areas, and actionable recommendations.
+      </p>
+    </section>
+
+    <!-- Why PBS is Important -->
+    <section class="content-section">
+      <h2>Why is PBS Important?</h2>
+      <p>
+        Your PBS serves as a mirror to your online presence, offering a clear view of how effectively you’re positioning 
+        yourself for your goals. Here’s why it matters:
+      </p>
+      <ul>
+        <li><strong>Stand Out in a Competitive Market:</strong> A strong personal brand increases visibility and credibility.</li>
+        <li><strong>Identify Gaps:</strong> Understand what's working and what isn't in your online footprint.</li>
+        <li><strong>Build Trust & Authority:</strong> A higher PBS indicates a professional, consistent presence.</li>
+        <li><strong>Track Your Progress:</strong> Regular PBS updates let you monitor improvements over time.</li>
+      </ul>
+    </section>
+
+    <!-- How to Improve PBS -->
+    <section class="content-section">
+      <h2>How to Improve Your PBS</h2>
+      <div class="steps-list">
+        <ul>
+          <li>
+            <h3>1. Optimize Your LinkedIn Profile</h3>
+            <p>
+              Complete every section (experience, education, skills), craft a compelling summary, and gather recommendations.
+            </p>
+          </li>
+          <li>
+            <h3>2. Build a Consistent Online Presence</h3>
+            <p>
+              Engage with your network, share relevant articles, and post content that aligns with your goals.
+            </p>
+          </li>
+          <li>
+            <h3>3. Create a Personal Website or Portfolio</h3>
+            <p>
+              Showcase your work with case studies, achievements, and easy contact info for potential collaborators.
+            </p>
+          </li>
+          <li>
+            <h3>4. Grow Your Network</h3>
+            <p>
+              Interact with industry leaders, attend events, and actively participate in communities aligned with your field.
+            </p>
+          </li>
+          <li>
+            <h3>5. Monitor Your Digital Reputation</h3>
+            <p>
+              Google yourself, clean up outdated or irrelevant info, and ensure your profiles remain professional.
+            </p>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Tracking PBS -->
+    <section class="content-section">
+      <h2>Track Your PBS Progress</h2>
+      <p>
+        YAIGA allows you to track your PBS over time. Once you have your initial score, revisit your profile and 
+        see how your actions influence your brand. Each improvement yields new insights and updated recommendations, 
+        guiding you toward greater success in landing that dream job, building a powerful network, or growing your business.
+      </p>
+    </section>
+  </div>
+
+  <!-- CTA Section -->
+  <section class="cta-section">
+    <div class="container">
+      <h2>Get Started with PBS Today</h2>
+      <p>
+        Ready to take your personal brand to the next level? Sign up for YAIGA and get your Personal Branding Score 
+        to start improving your online presence and achieving your professional goals.
+      </p>
+      <div class="cta-buttons">
+        <a href="#" class="cta-btn">Get Started for Free</a>
+        <a href="#" class="cta-btn">Calculate My PBS</a>
+      </div>
+    </div>
+  </section>
+
+  <div class="container">
+    <!-- FAQs -->
+    <section class="faq-section">
+      <h2>FAQs</h2>
+      
+      <div class="faq-item">
+        <h3>Q1: How often should I check my PBS?</h3>
+        <p>
+          We recommend checking your PBS every 1-3 months to track your progress and adjust your strategies as needed.
+        </p>
+      </div>
+
+      <div class="faq-item">
+        <h3>Q2: Can I improve my PBS without being active on social media?</h3>
+        <p>
+          Yes, while social media is a key factor, you can still improve your PBS by optimizing LinkedIn, building a strong 
+          portfolio, and engaging in offline networking opportunities.
+        </p>
+      </div>
+
+      <div class="faq-item">
+        <h3>Q3: Is my PBS shared with anyone?</h3>
+        <p>
+          Your PBS is personal and confidential. YAIGA provides recommendations for improvement, and these are never shared unless you choose to do so.
+        </p>
+      </div>
+    </section>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="footer-links">
+        <a href="#">Terms of Service</a> | 
+        <a href="#">Privacy Policy</a> | 
+        <a href="#">Contact Us</a>
+      </div>
+      <p>© 2025 YAIGA. All rights reserved.</p>
+    </div>
+  </footer>
+</body>
+</html>

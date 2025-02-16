@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Calculate My Personal Branding Score (PBS)</title>
+  
+  <!-- Google Font: Montserrat -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link 
+    href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&display=swap" 
+    rel="stylesheet"
+  >
+  
+  <style>
+    /* Global Reset */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Montserrat', sans-serif;
+      background-color: #f9f9f9;
+      color: #2b3289;
+    }
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    /* Container */
+    .container {
+      width: 90%;
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 2rem 0;
+    }
+
+    /* Header */
+    header {
+      background-color: #2b3289;
+      color: #ffffff;
+      padding: 1rem 0;
+      text-align: center;
+    }
+    header h1 {
+      font-size: 1.8rem;
+      font-weight: 700;
+    }
+
+    /* Intro / Hero */
+    .hero-section {
+      text-align: center;
+      margin: 2rem 0;
+    }
+    .hero-section h2 {
+      font-size: 1.6rem;
+      margin-bottom: 1rem;
+      font-weight: 600;
+    }
+    .hero-section p {
+      font-size: 1rem;
+      max-width: 800px;
+      margin: 0.5rem auto;
+      color: #555555;
+    }
+
+    /* Form Sections */
+    .form-section {
+      background-color: #ffffff;
+      border-radius: 6px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+      margin-bottom: 2rem;
+      padding: 1.5rem;
+    }
+    .form-section h3 {
+      font-size: 1.2rem;
+      margin-bottom: 1rem;
+      font-weight: 600;
+      color: #2b3289;
+    }
+    .form-section p {
+      margin-bottom: 1rem;
+      color: #444444;
+    }
+    .form-group {
+      margin-bottom: 1rem;
+    }
+    .form-group label {
+      display: block;
+      font-weight: 500;
+      margin-bottom: 0.5rem;
+      color: #333333;
+    }
+    .form-group .options {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+    .form-group input[type="radio"],
+    .form-group input[type="checkbox"] {
+      margin-right: 0.3rem;
+    }
+
+    /* Multiple Choice Groups */
+    .options select {
+      padding: 0.4rem;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      font-size: 0.9rem;
+      color: #2b3289;
+    }
+
+    /* CTA Button */
+    .btn-calculate {
+      display: inline-block;
+      background-color: #29c965;
+      color: #ffffff;
+      padding: 0.8rem 1.5rem;
+      border-radius: 4px;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+      transition: background-color 0.3s ease;
+      border: none;
+      cursor: pointer;
+      margin-top: 1rem;
+    }
+    .btn-calculate:hover {
+      background-color: #24b459;
+    }
+
+    /* Footer */
+    footer {
+      text-align: center;
+      margin: 2rem 0;
+      font-size: 0.9rem;
+      color: #666666;
+    }
+
+    /* Responsive Adjustments */
+    @media (max-width: 768px) {
+      .form-section {
+        padding: 1rem;
+      }
+      .form-group .options {
+        flex-direction: column;
+        gap: 0.5rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Calculate My Personal Branding Score (PBS)</h1>
+  </header>
+
+  <div class="container">
+    <!-- Hero / Intro -->
+    <section class="hero-section">
+      <h2>Welcome to the PBS Calculator!</h2>
+      <p>
+        Whether you're a Student or a Fresher, this tool will help you assess the strength of your personal brand 
+        across various platforms. Answer the questions below to calculate your PBS and get actionable insights 
+        into how you can improve.
+      </p>
+    </section>
+
+    <form id="pbsForm">
+      <!-- Step 1: Profile Type -->
+      <section class="form-section">
+        <h3>Step 1: Select Your Profile Type</h3>
+        <div class="form-group">
+          <label>I am a:</label>
+          <div class="options">
+            <label><input type="radio" name="profileType" value="Student" required /> Student</label>
+            <label><input type="radio" name="profileType" value="Fresher" required /> Fresher</label>
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Is your name among the top results when you Google it?</label>
+          <div class="options">
+            <label><input type="radio" name="googleSearch" value="Yes" required /> Yes</label>
+            <label><input type="radio" name="googleSearch" value="No" required /> No</label>
+          </div>
+        </div>
+      </section>
+
+      <!-- Section 1: Branding Consistency -->
+      <section class="form-section">
+        <h3>Section 1: Branding Consistency</h3>
+        <div class="form-group">
+          <label>Is your professional branding consistent across platforms (photo, bio, messaging)?</label>
+          <div class="options">
+            <label><input type="radio" name="consistency" value="Yes" required /> Yes</label>
+            <label><input type="radio" name="consistency" value="No" required /> No</label>
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Do you have a clear personal branding statement?</label>
+          <div class="options">
+            <label><input type="radio" name="brandStatement" value="Yes" required /> Yes</label>
+            <label><input type="radio" name="brandStatement" value="No" required /> No</label>
+          </div>
+        </div>
+      </section>
+
+      <!-- Section 2: Platform-Specific Evaluations -->
+      <section class="form-section">
+        <h3>Section 2: Platform-Specific Evaluations</h3>
+        <!-- LinkedIn -->
+        <div class="form-group">
+          <label>Do you have a LinkedIn profile?</label>
+          <div class="options">
+            <label><input type="radio" name="linkedinProfile" value="Yes" required /> Yes</label>
+            <label><input type="radio" name="linkedinProfile" value="No" required /> No</label>
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Do you have a profile picture & banner with quality, professional appeal?</label>
+          <div class="options">
+            <label><input type="radio" name="linkedinPicture" value="Yes" required /> Yes</label>
+            <label><input type="radio" name="linkedinPicture" value="No" required /> No</label>
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Do you have a headline with clarity and keyword optimization?</label>
+          <div class="options">
+            <label><input type="radio" name="linkedinHeadline" value="Yes" required /> Yes</label>
+            <label><input type="radio" name="linkedinHeadline" value="No" required /> No</label>
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Do you have a summary (About Section) with compelling storytelling and achievements?</label>
+          <div class="options">
+            <label><input type="radio" name="linkedinSummary" value="Yes" required /> Yes</label>
+            <label><input type="radio" name="linkedinSummary" value="No" required /> No</label>
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Do you have an experience & skills section that aligns with your career goals?</label>
+          <div class="options">
+            <label><input type="radio" name="linkedinSkills" value="Yes" required /> Yes</label>
+            <label><input type="radio" name="linkedinSkills" value="No" required /> No</label>
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Have you received recommendations & endorsements of high quality?</label>
+          <div class="options">
+            <label><input type="radio" name="linkedinEndorsements" value="Yes" required /> Yes</label>
+            <label><input type="radio" name="linkedinEndorsements" value="No" required /> No</label>
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Do you post content and receive engagement (posts, comments, shares, followers)?</label>
+          <div class="options">
+            <label><input type="radio" name="linkedinEngagement" value="Yes" required /> Yes</label>
+            <label><input type="radio" name="linkedinEngagement" value="No" required /> No</label>
+          </div>
+        </div>
+
+        <!-- YouTube -->
+        <div class="form-group">
+          <label>Do you have a YouTube channel?</label>
+          <div class="options">
+            <label><input type="radio" name="youtubeChannel" value="Yes" required /> Yes</label>
+            <label><input type="radio" name="youtubeChannel" value="No" required /> No</label>
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Do you post videos that align with your career interests?</label>
+          <div class="options">
+            <label><input type="radio" name="youtubeVideos" value="Yes" required /> Yes</label>
+            <label><input type="radio" name="youtubeVideos" value="No" required /> No</label>
+          </div>
+        </div>
+        <div class="form-group">
+          <label>How many subscribers do you have?</label>
+          <div class="options">
+            <select name="youtubeSubscribers" required>
+              <option value="Less than 100">Less than 100</option>
+              <option value="100+">100+</option>
+              <option value="500+">500+</option>
+              <option value="1000+">1000+</option>
+              <option value="10000+">10,000+</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- Instagram -->
+        <div class="form-group">
+          <label>Do you have an Instagram profile?</label>
+          <div class="options">
+            <label><input type="radio" name="instagramProfile" value="Yes" required /> Yes</label>
+            <label><input type="radio" name="instagramProfile" value="No" required /> No</label>
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Do you post videos or content that align with your career interests?</label>
+          <div class="options">
+            <label><input type="radio" name="instagramContent" value="Yes" required /> Yes</label>
+            <label><input type="radio" name="instagramContent" value="No" required /> No</label>
+          </div>
+        </div>
+        <div class="form-group">
+          <label>How many followers do you have?</label>
+          <div class="options">
+            <select name="instagramFollowers" required>
+              <option value="Less than 100">Less than 100</option>
+              <option value="100+">100+</option>
+              <option value="500+">500+</option>
+              <option value="1000+">1000+</option>
+              <option value="10000+">10,000+</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- X (Twitter) -->
+        <div class="form-group">
+          <label>Do you have an X (formerly Twitter) profile?</label>
+          <div class="options">
+            <label><input type="radio" name="twitterProfile" value="Yes" required /> Yes</label>
+            <label><input type="radio" name="twitterProfile" value="No" required /> No</label>
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Do you post content that aligns with your career interests?</label>
+          <div class="options">
+            <label><input type="radio" name="twitterContent" value="Yes" required /> Yes</label>
+            <label><input type="radio" name="twitterContent" value="No" required /> No</label>
+          </div>
+        </div>
+        <div class="form-group">
+          <label>How many followers do you have?</label>
+          <div class="options">
+            <select name="twitterFollowers" required>
+              <option value="Less than 100">Less than 100</option>
+              <option value="100+">100+</option>
+              <option value="500+">500+</option>
+              <option value="1000+">1000+</option>
+              <option value="10000+">10,000+</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- Other Platforms -->
+        <div class="form-group">
+          <label>Do you have a GitHub profile?</label>
+          <div class="options">
+            <label><input type="radio" name="githubProfile" value="Yes" required /> Yes</label>
+            <label><input type="radio" name="githubProfile" value="No" required /> No</label>
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Do you have a Behance/Dribbble profile?</label>
+          <div class="options">
+            <label><input type="radio" name="designProfile" value="Yes" required /> Yes</label>
+            <label><input type="radio" name="designProfile" value="No" required /> No</label>
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Do you have a Medium or Quora profile?</label>
+          <div class="options">
+            <label><input type="radio" name="mediumQuora" value="Yes" required /> Yes</label>
+            <label><input type="radio" name="mediumQuora" value="No" required /> No</label>
+          </div>
+        </div>
+      </section>
+
+      <!-- Section 3: Engagement and Community Participation -->
+      <section class="form-section">
+        <h3>Section 3: Engagement & Community Participation</h3>
+        <div class="form-group">
+          <label>Do you actively participate in academic or professional communities?</label>
+          <div class="options">
+            <label><input type="radio" name="communityParticipation" value="Yes" required /> Yes</label>
+            <label><input type="radio" name="communityParticipation" value="No" required /> No</label>
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Do you attend online or offline events, webinars, or workshops related to your interests?</label>
+          <div class="options">
+            <label><input type="radio" name="eventsAttendance" value="Yes" required /> Yes</label>
+            <label><input type="radio" name="eventsAttendance" value="No" required /> No</label>
+          </div>
+        </div>
+      </section>
+
+      <!-- Section 4: Internships & Opportunities -->
+      <section class="form-section">
+        <h3>Section 4: Internships & Opportunities</h3>
+        <div class="form-group">
+          <label>Have you received any internships, part-time opportunities, or project collaborations based on your efforts?</label>
+          <div class="options">
+            <label><input type="radio" name="internships" value="Yes" required /> Yes</label>
+            <label><input type="radio" name="internships" value="No" required /> No</label>
+          </div>
+        </div>
+      </section>
+
+      <!-- Section 5: Additional Questions -->
+      <section class="form-section">
+        <h3>Section 5: Additional Questions</h3>
+        <div class="form-group">
+          <label>How many LinkedIn connections do you have?</label>
+          <div class="options">
+            <select name="linkedinConnections" required>
+              <option value="Less than 100">Less than 100</option>
+              <option value="100+">100+</option>
+              <option value="500+">500+</option>
+              <option value="1000+">1000+</option>
+              <option value="10000+">10,000+</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Do you have an online portfolio or personal website showcasing your work?</label>
+          <div class="options">
+            <label><input type="radio" name="personalWebsite" value="Yes" required /> Yes</label>
+            <label><input type="radio" name="personalWebsite" value="No" required /> No</label>
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Have you completed at least 2 personal or academic projects that align with your career interests?</label>
+          <div class="options">
+            <label><input type="radio" name="academicProjects" value="Yes" required /> Yes</label>
+            <label><input type="radio" name="academicProjects" value="No" required /> No</label>
+          </div>
+        </div>
+      </section>
+
+      <!-- Section 6: Overall Personal Branding Evaluation -->
+      <section class="form-section">
+        <h3>Section 6: Overall Personal Branding Evaluation</h3>
+        <div class="form-group">
+          <label>Is your personal branding consistent across all platforms (photo, bio, messaging)?</label>
+          <div class="options">
+            <label><input type="radio" name="brandingConsistencyAll" value="Yes" required /> Yes</label>
+            <label><input type="radio" name="brandingConsistencyAll" value="No" required /> No</label>
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Do you have a clear personal branding statement (e.g., "I’m a student aspiring to...")?</label>
+          <div class="options">
+            <label><input type="radio" name="personalStatement" value="Yes" required /> Yes</label>
+            <label><input type="radio" name="personalStatement" value="No" required /> No</label>
+          </div>
+        </div>
+      </section>
+
+      <!-- Step 3: Calculate PBS -->
+      <section class="form-section">
+        <h3>Step 3: Calculate Your PBS</h3>
+        <p>Once you’ve answered all the questions, click below to calculate your Personal Branding Score.</p>
+        <button type="button" class="btn-calculate" onclick="calculatePBS()">Calculate My PBS</button>
+      </section>
+    </form>
+
+    <!-- You can display the result here, e.g., in a modal or below the button -->
+    <div id="pbsResult" style="text-align:center; margin-top:1rem; font-weight:600;"></div>
+  </div>
+
+  <footer>
+    <p>© 2025 YAIGA. All rights reserved.</p>
+  </footer>
+
+  <!-- Optional JavaScript for scoring (placeholder) -->
+  <script>
+    function calculatePBS() {
+      // Placeholder: In a real application, you'd gather form values,
+      // apply your scoring logic, and generate a total.
+      // Then display the result, e.g.,:
+      const resultDiv = document.getElementById('pbsResult');
+      resultDiv.textContent = "Your PBS is 75 out of 100! (Placeholder result)";
+      alert("Your Personal Branding Score has been calculated! (Placeholder)");
+    }
+  </script>
+</body>
+</html>
