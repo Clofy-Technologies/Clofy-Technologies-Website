@@ -28,12 +28,12 @@ const Navbar = () => {
       className="fixed top-0 left-0 right-0 bg-white shadow-sm z-[100] border-b border-gray-100"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center h-16 ">
+        <div className="flex justify-between items-center h-16 md:h-20">
           <motion.div
             whileHover={{ scale: 1.05 }}
             className="flex-shrink-0"
           >
-            <img src="/Logo-dark.png" alt="Clofy Logo" className="h-10 w-auto" />
+            <img src="/Logo-dark.png" alt="Clofy Logo" className="h-8 md:h-10 w-auto" />
           </motion.div>
           
           {/* Center Navigation */}
@@ -109,13 +109,13 @@ const Navbar = () => {
                Careers
               </motion.a>
             
-              <motion.button
+              <motion.a
                 whileHover={{ scale: 1.05 }}
                 className="text-gray-700 hover:text-blue-600 px-3 py-2 text-sm font-medium transition-colors"
-                onClick={() => navigate('/contact-us')}
+                 href="https://forms.office.com/r/vFmbpCrAEv?origin=lprLink"
               >
                Contact Us
-              </motion.button>
+              </motion.a>
 
           </div>
           
@@ -124,7 +124,7 @@ const Navbar = () => {
             <motion.button
               whileTap={{ scale: 0.95 }}
               onClick={() => setIsOpen(!isOpen)}
-              className="p-2"
+              className="p-2 -mr-2"
             >
               {isOpen ? <X size={24} /> : <Menu size={24} />}
             </motion.button>
@@ -139,13 +139,13 @@ const Navbar = () => {
           opacity: isOpen ? 1 : 0,
           height: isOpen ? "auto" : 0
         }}
-        className="md:hidden"
+        className="md:hidden bg-white"
       >
         <div className="px-4 pt-2 pb-3 space-y-1">
           {/* Home */}
           <motion.button
             whileHover={{ scale: 1.02 }}
-            className="w-full px-3 py-2 text-base font-medium text-gray-700 hover:text-blue-600 text-left"
+            className="w-full px-3 py-2 text-sm md:text-base font-medium text-gray-700 hover:text-blue-600 text-left"
             onClick={() => {
               navigate('/');
               setIsOpen(false);
@@ -158,7 +158,7 @@ const Navbar = () => {
          
           {/* Services Dropdown */}
           <div className="space-y-1">
-            <button className="w-full px-3 py-2 text-base font-medium text-gray-700 hover:text-blue-600 text-left">
+            <button className="w-full px-3 py-2 text-sm md:text-base font-medium text-gray-700 hover:text-blue-600 text-left">
               Services
             </button>
             <div className="pl-4 space-y-1">
@@ -178,7 +178,7 @@ const Navbar = () => {
           {/* Contact Us */}
           <motion.button
             whileHover={{ scale: 1.02 }}
-            className="w-full px-3 py-2 text-base font-medium text-gray-700 hover:text-blue-600 text-left"
+            className="w-full px-3 py-2 text-sm md:text-base font-medium text-gray-700 hover:text-blue-600 text-left"
             onClick={() => {
               navigate('/contact-us');
               setIsOpen(false);

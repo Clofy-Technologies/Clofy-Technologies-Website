@@ -44,33 +44,33 @@ const App: React.FC = () => {
       <Routes>
         <Route path="/" element={
           <>
-            {/* Hero Section */}
+            {/* Hero Section - Fix padding and font sizes */}
             <motion.section
               initial="initial"
               animate="animate"
               variants={staggerContainer}
-              className="pt-32 pb-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto text-center"
+              className="pt-20 md:pt-32 pb-8 md:pb-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto text-center"
             >
               <motion.div
                 initial={{ opacity: 0, scale: 0.8 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 0.5 }}
-                className="inline-block bg-blue-100 text-blue-600 px-6 py-2 rounded-full mb-8 font-medium"
+                className="inline-block bg-blue-100 text-blue-600 px-4 py-1 md:px-6 md:py-2 rounded-full mb-6 md:mb-8 text-sm md:text-base"
               >
-                <Sparkles className="inline-block mr-2" size={18} />
+                <Sparkles className="inline-block mr-2" size={16} />
                 Join us to shape the future of technology!
               </motion.div> 
               
               <motion.h1
                 variants={fadeInUp}
-                className="text-6xl font-bold text-gray-900 mb-6 leading-tight"
+                className="text-4xl md:text-6xl font-bold text-gray-900 mb-4 md:mb-6 leading-snug md:leading-tight"
               >
                 Empowering Growth, Innovation, and Digital Transformation
               </motion.h1>
               
               <motion.p
                 variants={fadeInUp}
-                className="text-xl text-gray-600 mb-12 max-w-3xl mx-auto leading-relaxed"
+                className="text-base md:text-xl text-gray-600 mb-8 md:mb-12 max-w-3xl mx-auto leading-relaxed"
               >
                We specialize in providing cutting-edge cloud solutions, AI-driven automation, and digital transformation strategies that drive success. 
               </motion.p>
@@ -80,25 +80,22 @@ const App: React.FC = () => {
                 className="flex justify-center space-x-4"
               >
                 <motion.button
-                  whileHover={{ scale: 1.05, boxShadow: "0 10px 30px rgba(37, 99, 235, 0.2)" }}
-                  whileTap={{ scale: 0.95 }}
-                  className="bg-blue-600 text-white px-8 py-4 rounded-lg font-medium flex items-center space-x-2 text-lg"
+                  whileHover={{ scale: 1.05 }}
+                  className="bg-blue-600 text-white px-6 py-3 md:px-8 md:py-4 rounded-lg font-medium flex items-center space-x-2 text-base md:text-lg"
                 >
                   <span>Start for free</span>
-                  <ArrowRight size={20} />
+                  <ArrowRight size={18} />
                 </motion.button>
               </motion.div>
             </motion.section>
 
-
-
-            {/* Why Choose Section */}
+            {/* Why Choose Section - Adjust spacing */}
             <motion.section
               initial="initial"
               whileInView="animate"
               viewport={{ once: true }}
               variants={staggerContainer}
-              className="py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto"
+              className="py-12 md:py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto"
             >
               <motion.div
                 variants={fadeInUp}

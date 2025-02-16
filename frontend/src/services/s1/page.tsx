@@ -73,14 +73,14 @@ export default function ServiceS1() {
             <h2 className="text-2xl font-bold mb-4">
               Ready to Optimize Your Microsoft 365?
             </h2>
-            <motion.button 
+            <motion.a
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               className="bg-white text-blue-600 px-6 py-3 rounded-lg font-semibold hover:bg-blue-50 transition-colors"
-              onClick={() => navigate('/contact-us')}
+               href="https://forms.office.com/r/vFmbpCrAEv?origin=lprLink"
             >
               Schedule Consultation
-            </motion.button>
+            </motion.a>
           </motion.div>
         </div>
       </section>

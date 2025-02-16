@@ -59,10 +59,10 @@ export default function ServiceS7() {
             <h2 className="text-2xl font-bold mb-4">
               Ready to Leverage AI/ML?
             </h2>
-            <button className="bg-white text-blue-600 px-6 py-3 rounded-lg font-semibold hover:bg-blue-50 transition-colors"
-            onClick={() => navigate('/contact-us')}>
+            <a className="bg-white text-blue-600 px-6 py-3 rounded-lg font-semibold hover:bg-blue-50 transition-colors"
+             href="https://forms.office.com/r/vFmbpCrAEv?origin=lprLink">
               Start AI Integration
-            </button>
+            </a>
           </div>
         </div>
       </section>
