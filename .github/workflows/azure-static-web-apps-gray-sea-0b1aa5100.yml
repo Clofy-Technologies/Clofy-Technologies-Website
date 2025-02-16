@@ -30,8 +30,10 @@ jobs:
         run: npm run build
         working-directory: ./frontend
 
-      - name: Verify Build Output
-        run: ls -R ./frontend/dist  # Check if build artifacts exist
+      - name: Debug Output Directory
+        run: |
+          ls -R ./frontend  # Check the entire structure inside the frontend directory
+          ls -R ./frontend/dist  # Verify if dist directory is generated after build
 
       - name: Build And Deploy
         id: builddeploy
