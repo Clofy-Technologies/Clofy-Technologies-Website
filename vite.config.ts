@@ -8,6 +8,6 @@ export default defineConfig({
     exclude: ['lucide-react'],  // Exclude dependencies from optimization
   },
   build: {
-    outDir: 'dist',  // Ensure this matches the output location defined in GitHub Actions
+    outDir: 'dist',  // Ensure the build output is placed in the root directory's dist folder
   },
 });
